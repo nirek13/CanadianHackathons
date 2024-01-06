@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Home Page{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="dark-mode" style="">
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <h1 class="display-1 fw-light pb-3 ">Find all the <span class="display-1 fw-light pb-3 shine-text ">Hackathons </span> in Canada</h1>
+      <div class="col-lg-8 col-md-8 mx-auto non-hacker-card">
+        <p class="lead text-body-secondary" style="color: white;">Explore Ontario Hackers, a vibrant online community uniting over 500 passionate individuals. Dive into insightful discussions about the latest hackathons across Canada, share experiences, and collaborate on innovative projects. Join us for a dynamic space where creativity, coding, and collaboration intersect in the world of Canadian hackathons.</p>
+        <p class="px-3">
+          <a href="https://discord.gg/XwcfrUFb" class="btn btn-primary my-2 px-3">Join Our Discord</a>
+          <a href="#" class="btn btn-secondary my-2 px-3">Add A Hackathon</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div id="hackathonList" class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <div class="row">
+        {% for i in list %}
+          {% if i[0] == "" %}
+          {% else %}
+            <div class="col col-lg-3 col-md-6 p-3">
+              <div class="card hacker-card" style="width: 18rem;">
+                <div class="card-body">
+                  <h3 class="card-title">{{ i[0] }}</h3>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Date: {{ i[2] }} - {{ i[3] }}</li>
+                  {% if i[4] == "" %}
+                  <li class="list-group-item">Application Deadline: Unknown</li>
+                  {% else %}
+                  <li class="list-group-item">Application Deadline: {{ i[4] }}</li>
+                  {% endif %}
+                  <li class="list-group-item">Location: {{ i[5] }}</li>
+                </ul>
+                <div class="card-body">
+                  <a href="{{i[1]}}" class="card-link btn btn-primary ">Website</a>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div id="loading" class="text-center py-5 non-hacker-card">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+</main>
+{% endblock %}

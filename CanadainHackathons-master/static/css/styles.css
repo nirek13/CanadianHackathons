@@ -1,0 +1,154 @@
+/* styles.css */
+
+/* Global styles */
+body {
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* Light Mode */
+body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.text-body-secondary {
+    --bs-text-opacity: 1;
+    color: rgb(242 242 242 / 75%)!important;
+}
+
+/* Shine effect for the Hackathons text */
+.shine-text {
+    background-image: linear-gradient(90deg, #ff8c00, #ff0080, #ff8c00);
+    background-size: 200% 100%;
+    animation: shine-animation 2s infinite linear;
+    color: transparent;
+    background-clip: text;
+}
+
+@keyframes shine-animation {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+/* Dark mode styles for cards */
+.hacker-card {
+    background-color: #1a1a1a; /* Dark background for cards */
+    color: #ffffff; /* White text for cards */
+    /* Add any other retro styles you want for the cards */
+}
+
+/* Rest of your styles */
+
+/* Add styles for the falling maple leaves animation */
+.falling-leaves {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.leaf {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-image: linear-gradient(90deg, #ff8c00, #ff0080, #ff8c00);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fallAnimation 5s linear infinite;
+}
+
+@keyframes fallAnimation {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* styles.css */
+
+/* ... (your existing styles) */
+
+/* Shine effect for the word "Hackathons" */
+.shine-text {
+    background-image: linear-gradient(90deg, #ff8c00, #ff0080, #ff8c00);
+    background-size: 200% 100%;
+    animation: shine-animation 2s infinite linear;
+    color: transparent;
+    background-clip: text;
+}
+
+@keyframes shine-animation {
+    0%, 100% {
+        background-position: 100% 0;
+    }
+    50% {
+        background-position: -100% 0;
+    }
+}
+/* styles.css */
+
+/* Global styles */
+body {
+    background-color: #121212; /* Dark page background */
+    color: #ffffff; /* Light text color */
+}
+
+/* Card styles */
+#hackathonList .hacker-card {
+    background-color: #ffffff; /* Dark background for cards */
+    color: #252323; /* White text for cards */
+    border: 1px solid #000; /* Dark border for cards */
+    border-radius: 10px; /* Rounded corners for cards */
+    overflow: hidden; /* Hide overflow content */
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle box shadow */
+}
+
+#hackathonList .hacker-card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Increase box shadow on hover */
+}
+
+#hackathonList .hacker-card .card-body {
+    padding: 20px; /* Add padding to card body */
+}
+
+#hackathonList .hacker-card .list-group-item {
+    background-color: #ffffff; /* Dark background for list items */
+    border: none; /* Remove border for list items */
+}
+
+#hackathonList .hacker-card .card-link {
+    color: #ffffff; /* White text for card links */
+    transition: color 0.3s ease-in-out;
+}
+
+#hackathonList .hacker-card .card-link:hover {
+    color: #ff8c00; /* Change link color on hover */
+}
+
+/* Shine effect for the word "Hackathons" */
+#hackathonList .shine-text {
+    background-image: linear-gradient(90deg, #ff8c00, #ff0080, #ff8c00);
+    background-size: 200% 100%;
+    color: transparent;
+    background-clip: text;
+    transition: background-position 0.5s ease-in-out;
+}
+
+#hackathonList .hacker-card:hover .shine-text {
+    background-position: -100% 0; /* Animate background on hover */
+}
