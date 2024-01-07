@@ -59,9 +59,13 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
 Bootstrap5(app)
 
+@app.route("/hackathons")
+def hell_world():
+    return render_template("home.html", list = sheet_data)
 @app.route("/")
 def hello_world():
-    return render_template("home.html", list = sheet_data)
+    return render_template("landingpage.html", list = sheet_data)
+
 
 
 

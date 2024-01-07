@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}Home Page{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- Your HTML content -->
+
+  
+  <!-- Rest of your HTML content -->
+  
+  <div class="matrix-rain">
+    <!-- Generate matrix characters dynamically with JavaScript -->
+</div>
+
+<!-- Add this script to your HTML file, preferably before the closing </body> tag -->
+
+<!-- Add this script to your HTML file, preferably before the closing </body> tag -->
+
+<script>
+    // Function to generate a random matrix character
+    function randomMatrixCharacter() {
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()";
+        return characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+
+    // Function to create a matrix character element
+    function createMatrixCharacter() {
+        const character = randomMatrixCharacter();
+        const element = document.createElement("div");
+        element.className = "matrix-character";
+        element.innerText = character;
+        return element;
+    }
+
+    // Function to create matrix rain
+    function createMatrixRain() {
+        const matrixRain = document.querySelector(".matrix-rain");
+        const numberOfCharacters = 100; // Adjust the number of characters
+        const screenWidth = window.innerWidth;
+
+        for (let i = 0; i < numberOfCharacters; i++) {
+            setTimeout(() => {
+                const matrixCharacter = createMatrixCharacter();
+                const randomPosition = Math.random() * screenWidth;
+                matrixCharacter.style.left = randomPosition + "px";
+                matrixRain.appendChild(matrixCharacter);
+            }, i * 100); // Adjust the delay (in milliseconds) between characters
+        }
+    }
+
+    // Generate matrix rain on page load
+    window.onload = createMatrixRain;
+</script>
+
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <h1 class="display-1 fw-light pb-3 shine-text">Welcome to Your Hackathon Community</h1>
+      <div class="col-lg-8 col-md-8 mx-auto non-hacker-card">
+        <p class="lead text-body-secondary" style="color: white;">
+          Explore the vibrant world of hackathons with our online community. Connect with over 700 passionate individuals, engage in insightful discussions, and stay updated on the latest hackathons in Ontario. Join us for a dynamic space where creativity, coding, and collaboration intersect.
+        </p>
+        <p class="px-3">
+          <a href="https://discord.gg/XwcfrUFb" class="btn btn-primary my-2 px-3">Join Our Discord</a>
+          <a href="/hackathons" class="btn btn-secondary my-2 px-3">Discover Upcoming Hackathons</a>
+        </p>
+      </div>
+    </div>
+  </section>
+{% endblock %}
